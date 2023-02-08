@@ -6,4 +6,12 @@ export default defineNuxtConfig({
     // add `vueI18n` option to `@nuxtjs/i18n` module options
     vueI18n: i18n,
   },
+  runtimeConfig: {
+    // The private keys which are only available server-side
+    apiSecret: '',
+    // Keys within public are also exposed client-side
+    public: {
+      apiBase: '/api'
+    }
+  }
 });

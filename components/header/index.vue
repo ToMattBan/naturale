@@ -20,7 +20,7 @@
     </form>
 
     <div class="flex gap-5">
-      <button class="px-2 text-sm rounded-md bg-emerald-500 hover:bg-emerald-600 shadow shadow-emerald-300 hover:shadow-none text-white flex items-center gap-1">
+      <button class="px-2 text-sm rounded-md bg-emerald-500 hover:bg-emerald-600 dark:hover:bg-amber-500 shadow shadow-emerald-300 hover:shadow-none text-white flex items-center gap-1">
         <Icon name="heroicons:user" size="20" />
         <span class="">{{ $t('register_login') }}</span>
       </button>

@@ -1,21 +1,16 @@
 <template>
   <main class="container mx-auto">
-    <Header />
+    {{ appConfig.title }}
   </main>
 	<NuxtWelcome />
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+const runtimeConfig = useRuntimeConfig()
 
-export default defineComponent({
-setup() {
-  return {
-    // View/Model
-    // Refs
-    // Variáveis
-    // Funções
-  };
-},
-});
+const appConfig = useAppConfig();
+console.log(appConfig);
+
+appConfig.title = 'Cleyton';
+console.log(appConfig);
 </script>
