@@ -1,42 +1,69 @@
-# Nuxt 3 Minimal Starter
+# Projeto Naturale Nuxt 3
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+You can find the layout [here](https://www.figma.com/file/8GjHl7CdC2GugIMLZTBQBH/Naturale_Copy)
 
-## Setup
+## Definitions
+Project to learn Nuxt 3, using what it give to us and just that. The use case will be an "natural" e-commerce, which sells a variety of natural products, like food, creams, shampoos, etc. 
 
-Make sure to install the dependencies:
+## Techs used:
+- Nuxt 3
+- MongoDB
 
-```bash
-# yarn
-yarn install
+## Deadline
+- Front-end (Nuxt 3) 19/02/2023
+- Back-end (MondoDB) 26/02/2023
 
-# npm
-npm install
+## Layout
+Layout done by KevinL on figma, I just duplciated and put everything in one file [here](https://www.figma.com/file/8GjHl7CdC2GugIMLZTBQBH/Naturale_Copy)
 
-# pnpm
-pnpm install
-```
+## Roadmap
+### Due 19/02/2023
+- Settings
+  - [x] Starting the project
+  - [ ] CSS variables
+  - [ ] Typography
+- Components
+  - [ ] Header
+  - [ ] Navbar
+  - [ ] Footer
+  - [ ] Button
+  - [ ] Breadcrumb
+  - [ ] Product Card
+- Pages
+  - HomePage
+    - [ ] Hero (Slider)
+    - [ ] Main Categories
+    - [ ] Product List
+    - [ ] Load More button (Just visual or mocked)
+  - Product Page
+    - [ ] Images slider
+    - [ ] Details (Name, Price, Etc)
+    - [ ] Cep Field
+    - [ ] Description
+    - [ ] Another Products
+    - [ ] Load More button (Just visual or mocked)
 
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+### Due 26/02/2023
+- Settings
+  - [ ] Crete database on Mongo
+    - [ ] Create products table
+    - [ ] Create newletter table
+  - [ ] Create .env file with keys
+- HomePage
+  - [ ] Get main caregories
+  - [ ] Get product list
+  - [ ] "Load More" CTA working (pagination)
+- Product Page
+  - [ ] Get product details
+- Components
+  - Newsletter
+    - [ ] Validate infos
+    - [ ] Check if e-mail already signuped
+    - [ ] Succesfully sign up user on DB
+    
+### Future
+- Signup/Login Working
+- Navbar pages
+- Footer pages
+- Search page
+- Search bar
