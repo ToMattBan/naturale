@@ -19,6 +19,10 @@
       </div>
     </form>
 
+    <div>
+      <h1 class="text-2xl font-bold">{{ counter }}</h1>
+    </div>
+
     <div class="flex gap-5">
       <button class="px-2 text-sm rounded-md bg-emerald-500 hover:bg-emerald-600 dark:hover:bg-amber-500 shadow shadow-emerald-300 hover:shadow-none text-white flex items-center gap-1">
         <Icon name="heroicons:user" size="20" />
@@ -32,3 +36,7 @@
     </div>
   </header>
 </template>
+
+<script setup>
+const counter = useCounter()
+</script>

@@ -13,5 +13,12 @@ export default defineNuxtConfig({
     public: {
       apiBase: '/api'
     }
-  }
+  },
+  app: {
+    // head: {
+    //   title: "Treinando NUXT 3"
+    // }
+    pageTransition: { name: 'page', mode: 'out-in' }
+  },
+  
 });
