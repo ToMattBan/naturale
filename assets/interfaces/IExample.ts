@@ -1,0 +1,3 @@
+interface IExample {
+  example: string;
+}
