@@ -20,8 +20,8 @@ Layout done by KevinL on figma, I just duplciated and put everything in one file
 ### Due 19/02/2023
 - Settings
   - [x] Starting the project
-  - [ ] CSS variables
-  - [ ] Typography
+  - [x] CSS variables
+  - [x] Typography
 - Components
   - [ ] Header
   - [ ] Navbar
