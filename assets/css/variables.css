@@ -1,11 +1,13 @@
 /* COLORS */
 :root {
   --green: #00aa44;
-  --logoGreen: #00aa95;
+  --greenLogo: #00aa95;
+
   --background: #f9f9f9;
+
   --gray: #d9d9d9;
-  --mediumGray: #e6e6e6;
-  --lightGray: #f0f0f0;
+  --grayMedium: #e6e6e6;
+  --grayLight: #f0f0f0;
 }
 
 /* SIZES */
