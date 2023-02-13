@@ -1,0 +1,6 @@
+body {
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: var(--small);
+  line-height: var(--smallM);
+}
