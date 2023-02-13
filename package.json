@@ -8,9 +8,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@fontsource/inter": "^4.5.15",
     "nuxt": "^3.1.2"
-  },
-  "dependencies": {
-    "@fontsource/inter": "^4.5.15"
   }
 }
