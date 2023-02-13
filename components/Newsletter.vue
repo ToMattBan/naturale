@@ -25,9 +25,11 @@
 }
 
 .form-newsletter button.button {
-  width: 100%;
-  margin-top: 16px;
   font-weight: 900;
+  font-weight: 700;
+  margin-top: 16px;
+  padding: 4px;
+  width: 100%;
 }
 
 .form-newsletter p {
