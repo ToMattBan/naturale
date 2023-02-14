@@ -25,8 +25,8 @@ Layout done by KevinL on figma, I just duplciated and put everything in one file
 - Components
   - [ ] Header
   - [ ] Navbar
-  - [ ] Footer
-  - [ ] Button
+  - [x] Footer
+  - [x] Button
   - [ ] Breadcrumb
   - [ ] Product Card
 - Pages
