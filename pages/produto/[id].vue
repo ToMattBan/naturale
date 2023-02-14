@@ -3,7 +3,7 @@
     <section class="content">
       <div class="product-details">
         <div class="product-details-photos">
-          <!-- <img src="https://images.unsplash.com/photo-1559881230-1af605ca3f67?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" /> -->
+          <img :src="productDetails?.images[0]" />
         </div>
         <div class="product-details-cta">
           <h1>
@@ -56,6 +56,7 @@ interface IProductDetails {
   actualPrice: number;
   availableQtd: number;
   description: string;
+  images: string[];
 }
 
 const {
@@ -103,6 +104,15 @@ function formatPrice(price?: number) {
 
 .product-details .product-details-photos {
   flex: 6;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-right: 32px;
+}
+
+.product-details .product-details-photos img {
+  width: 100%;
+  position: absolute;
 }
 
 .product-details .product-details-cta {
