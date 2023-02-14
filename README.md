@@ -1,7 +1,5 @@
 # Projeto Naturale Nuxt 3
-
-You can find the layout [here](https://www.figma.com/file/8GjHl7CdC2GugIMLZTBQBH/Naturale_Copy)
-
+ 
 ## Definitions
 Project to learn Nuxt 3, using what it give to us and just that. The use case will be an "natural" e-commerce, which sells a variety of natural products, like food, creams, shampoos, etc. 
 
@@ -39,7 +37,7 @@ Layout done by KevinL on figma, I just duplciated and put everything in one file
     - [ ] Images slider
     - [ ] Details (Name, Price, Etc)
     - [ ] Cep Field
-    - [ ] Description
+    - [x] Description
     - [ ] Another Products
     - [ ] Load More button (Just visual or mocked)
 
