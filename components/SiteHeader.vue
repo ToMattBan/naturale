@@ -26,7 +26,6 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
-  /* padding: var(--smallS) var(--normal); */
 }
 
 .logo {
