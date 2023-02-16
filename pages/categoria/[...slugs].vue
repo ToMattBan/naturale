@@ -13,10 +13,10 @@
             >
           </h1>
           <div class="product-original-price">
-            {{ formatPrice(productDetails?.originalPrice) }}
+            {{ formatPriceToBRL(productDetails?.originalPrice) }}
           </div>
           <div class="product-actual-price">
-            {{ formatPrice(productDetails?.actualPrice) }}
+            {{ formatPriceToBRL(productDetails?.actualPrice) }}
           </div>
           <p>Quantidade disponível: {{ productDetails?.availableQtd }}</p>
           <div class="product-cep">
@@ -25,15 +25,15 @@
           </div>
           <div class="product-cart">
             <div class="product-qtd">
-              <button class="product-remove-qtd" @click="changeQtd('remove')">
+              <Button class="product-remove-qtd" @click="changeQtd('remove')">
                 -
-              </button>
+              </Button>
               <span class="product-qtd-selected">{{ quantitySelected }}</span>
-              <button class="product-add-qtd" @click="changeQtd('add')">
+              <Button class="product-add-qtd" @click="changeQtd('add')">
                 +
-              </button>
+              </Button>
             </div>
-            <Button text="Adicionar ao carrinho" />
+            <Button>Adicionar ao carrinho</Button>
           </div>
         </div>
       </div>
@@ -80,15 +80,6 @@ function changeQtd(type: 'add' | 'remove') {
   if (type == 'remove' && productDetails.value && quantitySelected.value > 1) {
     return quantitySelected.value--;
   }
-}
-
-function formatPrice(price?: number) {
-  if (!price) return '';
-
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-  }).format(price);
 }
 </script>
 
@@ -178,19 +169,11 @@ function formatPrice(price?: number) {
   align-content: center;
 }
 
-.product-details .product-details-cta .product-cart .product-remove-qtd,
-.product-details .product-details-cta .product-cart .product-qtd-selected,
-.product-details .product-details-cta .product-cart .product-add-qtd {
+.product-details .product-details-cta .product-cart .product-qtd-selected {
   background-color: var(--green);
   color: white;
   border: none;
   padding: var(--smallS);
-}
-
-.product-details .product-details-cta .product-cart .product-remove-qtd,
-.product-details .product-details-cta .product-cart .product-add-qtd {
-  font-size: var(--small);
-  cursor: pointer;
 }
 
 .product-details .product-details-cta .product-cart .product-remove-qtd {
