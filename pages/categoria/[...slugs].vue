@@ -5,6 +5,7 @@
         <div class="product-details-photos">
           <img :src="productDetails?.images[0]" />
         </div>
+
         <div class="product-details-cta">
           <h1>
             <span>{{ productDetails?.name }}</span>
@@ -21,7 +22,7 @@
           <p>Quantidade disponível: {{ productDetails?.availableQtd }}</p>
           <div class="product-cep">
             <input placeholder="Consultar o frete... (CEP)" />
-            <button>Buscar</button>
+            <Button>Buscar</Button>
           </div>
           <div class="product-cart">
             <div class="product-qtd">
@@ -37,6 +38,7 @@
           </div>
         </div>
       </div>
+
       <article class="product-info">
         <h2 class="product-info-title">Informações do Produto</h2>
         <div style="white-space: pre-line">
@@ -44,7 +46,11 @@
         </div>
       </article>
     </section>
-    <div>Outros Produtos</div>
+
+    <section class="more-products">
+      <div>Outros Produtos</div>
+      <Button class="load-more">Carregar mais...</Button>
+    </section>
   </div>
 </template>
 
@@ -205,5 +211,14 @@ function changeQtd(type: 'add' | 'remove') {
   text-align: center;
   color: var(--green);
   font-weight: 700;
+}
+
+.more-products {
+  text-align: center;
+  margin: var(--normal) 0;
+}
+
+.more-products .load-more {
+  padding: var(--smallS) var(--small);
 }
 </style>
