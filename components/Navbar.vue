@@ -1,13 +1,8 @@
 <template>
   <nav class="container">
     <ul class="menu">
-      <li>
-        <button class="menu-btn active">
-          Todas as categorias
-        </button>
-      </li>
       <li v-for="(menuItem, index) in menuList">
-        <button class="menu-btn">
+        <button :class="`menu-btn ${index == 0 ? 'active' : ''}`">
           {{  menuItem.name }}
         </button>
       </li>
@@ -17,6 +12,10 @@
 
 <script setup lang="ts">
 const menuList = ref([
+  {
+    id: 0,
+    name: "Todas as categorias"
+  },
   {
     id: 1,
     name: 'Tratamento facial'
@@ -45,6 +44,10 @@ const menuList = ref([
   list-style-type: none;
   padding: 0;
   width: 100%;
+}
+
+.menu li {
+  flex: 1;
 }
 
 .menu-btn {
