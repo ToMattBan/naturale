@@ -1,7 +1,6 @@
 <template>
   <button :class="`button ${variation}`" :type="type">
     <slot />
-    <span>{{ text }}</span>
   </button>
 </template>
 
@@ -10,7 +9,6 @@ type TButtonType = "button" | "submit" | "reset" | undefined;
 type TButtonVariation = "default" | "inverted";
 
 defineProps({
-  text: { type: String, required: true },
   type: {
     type: String as PropType<TButtonType>,
     default: 'submit'

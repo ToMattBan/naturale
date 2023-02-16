@@ -10,8 +10,11 @@
           <input id="search" class="search" type="text" placeholder="Buscar produtos...">
         </label> 
     
-        <Button class="register" text="Cadastro / Login">
-          <img class="register-icon" src="~assets/icons/user.svg" alt="My Happy SVG" />
+        <Button>
+          <div class="register">
+            <img class="register-icon" src="~assets/icons/user.svg" alt="My Happy SVG" />
+            <span>Cadastro / Login</span>
+          </div>
         </Button>
     
         <button class="cart">

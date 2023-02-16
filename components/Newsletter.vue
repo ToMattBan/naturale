@@ -5,7 +5,9 @@
       <input type="email" placeholder="*Digite seu e-mail..." required />
       <input type="phone" placeholder="Digite seu telefone..." required />
       <p>Campos com * são obrigatórios</p>
-      <Button text="Cadastrar" variation="inverted" />
+      <Button variation="inverted">
+        Cadastrar
+      </Button>
     </form>
   </article>
 </template>
