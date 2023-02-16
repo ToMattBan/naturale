@@ -8,3 +8,8 @@ html, body {
   font-size: var(--small);
   line-height: var(--smallM);
 }
+
+.container {
+  margin: auto;
+  max-width: 1440px;
+}
