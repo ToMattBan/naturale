@@ -25,7 +25,7 @@ interface IRoutes {
 
 const originalRoute = useRoute();
 
-const breadRoutes = ref<IRoutes[]>();
+const breadRoutes = ref<IRoutes[]>([]);
 
 createBreadcrumb(originalRoute);
 
@@ -42,15 +42,16 @@ function createBreadcrumb(route: any) {
       else name = route.params[key][0];
 
       breadRoutes.value.push({
-        name: formatName(name),
+        name: formatName(name, key),
         path: actualRoute,
       });
     }
   }
 }
 
-function formatName(name: string) {
-  return name.replace('-', ' ');
+function formatName(name: string, param: string) {
+  if (param != 'products') return name.replace('-', ' ');
+  else return useProductDetails().productDetails.value.name
 }
 
 watch(originalRoute, (newRoute) => {

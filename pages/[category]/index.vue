@@ -1,3 +1,5 @@
 <template>
-  <h1>Categoria</h1>
+  <h1>
+    <NuxtLink :to="`${$route.path}/123`">PRODUTO 123</NuxtLink>
+  </h1>
 </template>
