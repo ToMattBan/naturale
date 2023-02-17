@@ -69,7 +69,7 @@ const {
   data: productDetails,
   pending,
   error,
-} = await useFetch<IProductDetails>('/mocks/productDetails.json');
+} = await useFetch<IProductDetails>('/api/productDetails');
 
 const quantitySelected = ref(1);
 const ehNaturale = productDetails.value?.brand == 'Naturale';
@@ -102,7 +102,7 @@ function changeQtd(type: 'add' | 'remove') {
 .product-details .product-details-photos {
   flex: 6;
   position: relative;
-  border-radius: 16px;
+  border-radius: var(--borderRadius);
   overflow: hidden;
   margin-right: 32px;
 }
@@ -114,7 +114,7 @@ function changeQtd(type: 'add' | 'remove') {
 
 .product-details .product-details-cta {
   background-color: #e6e6e6;
-  border-radius: 16px;
+  border-radius: var(--borderRadius);
   flex: 4;
   padding: var(--small);
 }
@@ -155,13 +155,13 @@ function changeQtd(type: 'add' | 'remove') {
 .product-details .product-details-cta .product-cep input {
   width: 100%;
   border: solid 2px var(--green);
-  border-radius: 16px 0 0 16px;
+  border-radius: var(--borderRadius) 0 0 var(--borderRadius);
   padding: var(--smallS) var(--small);
 }
 
 .product-details .product-details-cta .product-cep button {
   background-color: var(--green);
-  border-radius: 0 16px 16px 0;
+  border-radius: 0 var(--borderRadius) var(--borderRadius) 0;
   color: white;
   border: none;
   padding: var(--smallS) var(--small);
@@ -183,12 +183,12 @@ function changeQtd(type: 'add' | 'remove') {
 }
 
 .product-details .product-details-cta .product-cart .product-remove-qtd {
-  border-radius: 16px 0 0 16px;
+  border-radius: var(--borderRadius) 0 0 var(--borderRadius);
 }
 
 .product-details .product-details-cta .product-cart .product-add-qtd {
-  border-radius: 0 16px 16px 0;
-  margin-right: 16px;
+  border-radius: 0 var(--borderRadius) var(--borderRadius) 0;
+  margin-right: var(--small);
 }
 
 .product-details .product-details-cta .product-cart .product-qtd-selected {
@@ -203,7 +203,7 @@ function changeQtd(type: 'add' | 'remove') {
 .product-info {
   background-color: var(--grayLight);
   border: solid 4px var(--green);
-  border-radius: 16px;
+  border-radius: var(--borderRadius);
   padding: 0 var(--largeS) var(--largeS);
 }
 
