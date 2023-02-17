@@ -1,6 +1,10 @@
 <template>
   <div class="carousel">
-    <slot :currentSlide="currentSlide" />
+    <Slide v-for="(slide, index) in carouselSlides" :key="index">
+      <div v-show="currentSlide === index + 1" class="slide-info">
+        <img :src="`/carousel/${slide}.jpg`" alt="" />
+      </div>
+    </Slide>
 
     <!-- Navigation -->
     <div v-if="navEnabled" class="navigate">
@@ -14,19 +18,28 @@
 
     <!-- Pagination -->
     <div v-if="pagintationEnabled" class="pagination">
-      <span class="page" @click="goToSlide(index)" v-for="(slide, index) in getSlideCount" :key="index"
-        :class="{ active: index + 1 === currentSlide }">
+      <span
+        class="page"
+        @click="goToSlide(index)"
+        v-for="(slide, index) in getSlideCount"
+        :key="index"
+        :class="{ active: index + 1 === currentSlide }"
+      >
       </span>
     </div>
-</div>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, onMounted } from 'vue';
 const props = defineProps({
+  carouselSlides: {
+    type: Object as PropType<string[]>,
+    required: true,
+  },
   startAutoPlay: {
     type: Boolean,
-    default: false
+    default: false,
   },
   timeout: {
     type: Number,
@@ -34,12 +47,12 @@ const props = defineProps({
   },
   navigation: {
     type: Boolean,
-    default: true
+    default: true,
   },
   pagination: {
     type: Boolean,
     default: true,
-  }
+  },
 });
 
 const currentSlide = ref(1);
@@ -53,7 +66,9 @@ const timeoutDuration = ref(props.timeout === undefined ? 5000 : props.timeout);
 const pagintationEnabled = ref(
   props.pagination === undefined ? true : props.pagination
 );
-const navEnabled = ref(props.navigation === undefined ? true : props.navigation);
+const navEnabled = ref(
+  props.navigation === undefined ? true : props.navigation
+);
 
 // next slide
 const nextSlide = () => {
@@ -86,7 +101,9 @@ const autoPlay = () => {
 
 if (autoPlayEnabled.value) autoPlay();
 
-onMounted(() => getSlideCount.value = document.querySelectorAll(".slide").length);
+onMounted(
+  () => (getSlideCount.value = document.querySelectorAll('.slide').length)
+);
 </script>
 
 <style>
