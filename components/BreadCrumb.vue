@@ -1,11 +1,19 @@
 <template>
-  <div class="breadcrumb">
-    <span v-for="(breadRoute, index) in breadRoutes">
-      <NuxtLink :to="breadRoute.path">{{ breadRoute.name }} </NuxtLink>
-      <span class="separator" v-if="index != breadRoutes.length - 1">{{
-        '>'
-      }}</span>
-    </span>
+  <div class="container">
+    <div class="breadcrumb">
+      <span v-for="(breadRoute, index) in breadRoutes">
+        <NuxtLink
+          :class="
+            index == breadRoutes.length - 1 ? 'last-route routes' : 'routes'
+          "
+          :to="breadRoute.path"
+          >{{ breadRoute.name }}
+        </NuxtLink>
+        <span class="separator" v-if="index != breadRoutes.length - 1">{{
+          '>'
+        }}</span>
+      </span>
+    </div>
   </div>
 </template>
 
@@ -15,43 +23,57 @@ interface IRoutes {
   path: string;
 }
 
-const breadRoutes: IRoutes[] = [
-  {
-    name: 'Início',
-    path: '/',
-  },
-];
+const originalRoute = useRoute();
 
-createBreadcrumb();
+const breadRoutes = ref<IRoutes[]>();
 
-function createBreadcrumb() {
+createBreadcrumb(originalRoute);
+
+function createBreadcrumb(route: any) {
   let actualRoute = '';
-  const route = useRoute();
+  breadRoutes.value = [{ name: 'Home', path: '/' }];
 
   for (var key in route.params) {
     if (route.params.hasOwnProperty(key)) {
       actualRoute += `/${route.params[key]}`;
 
-      breadRoutes.push({
-        name:
-          typeof route.params[key] == 'string'
-            ? formatName(route.params[key])
-            : formatName(route.params[key][0]),
+      let name = '';
+      if (typeof route.params[key] == 'string') name = route.params[key];
+      else name = route.params[key][0];
+
+      breadRoutes.value.push({
+        name: formatName(name),
         path: actualRoute,
       });
     }
   }
 }
 
-function formatName(name: string | string[]) {
-  return name;
+function formatName(name: string) {
+  return name.replace('-', ' ');
 }
+
+watch(originalRoute, (newRoute) => {
+  createBreadcrumb(newRoute);
+});
 </script>
 
 <style scoped>
 .breadcrumb {
   display: flex;
   font-weight: 500;
+  text-transform: capitalize;
+}
+
+.breadcrumb .routes,
+.breadcrumb .separator {
+  text-decoration: none;
+  color: inherit;
+}
+
+.breadcrumb .routes:hover,
+.breadcrumb .routes.last-route {
+  color: var(--green);
 }
 
 .breadcrumb .separator {

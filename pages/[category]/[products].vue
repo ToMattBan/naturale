@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <section class="content">
       <div class="product-details">
         <div class="product-details-photos">
