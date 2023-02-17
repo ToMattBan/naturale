@@ -35,11 +35,11 @@ Layout done by KevinL on figma, I just duplciated and put everything in one file
     - [ ] Load More button (Just visual or mocked)
   - Product Page
     - [ ] Images slider
-    - [ ] Details (Name, Price, Etc)
-    - [ ] Cep Field
+    - [x] Details (Name, Price, Etc)
+    - [x] Cep Field
     - [x] Description
     - [ ] Another Products
-    - [ ] Load More button (Just visual or mocked)
+    - [x] Load More button (Just visual or mocked)
 
 ### Due 26/02/2023
 - Settings
