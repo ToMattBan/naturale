@@ -23,10 +23,10 @@ Layout done by KevinL on figma, I just duplciated and put everything in one file
   - [x] CSS variables
   - [x] Typography
 - Components
-  - [ ] Header
-  - [ ] Navbar
-  - [ ] Footer
-  - [ ] Button
+  - [x] Header
+  - [x] Navbar
+  - [x] Footer
+  - [x] Button
   - [ ] Breadcrumb
   - [ ] Product Card
 - Pages
