@@ -1,7 +1,6 @@
 <template>
   <main class="container">
     <Carousel
-      :navigation="true"
       :pagination="true"
       :startAutoPlay="false"
       :timeout="5000"

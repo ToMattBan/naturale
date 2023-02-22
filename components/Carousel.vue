@@ -6,15 +6,16 @@
       </div>
     </Slide>
 
-    <!-- Navigation -->
-    <div v-if="navEnabled" class="navigate">
-      <div class="toggle-page left">
-        <i @click="prevSlide" class="icon fas fa-chevron-left"></i>
+    <article class="product-info">
+      <h1 class="product-status">Novidade!</h1>
+      <div class="product">
+        <h2 class="title">Creme Facil</h2>
+        <p class="brand">Naturale</p>
       </div>
-      <div class="toggle-page right">
-        <i @click="nextSlide" class="icon fas fa-chevron-right"></i>
-      </div>
-    </div>
+      <Button class="button default" to="/">
+        Confira já
+      </Button>
+    </article>
 
     <!-- Pagination -->
     <div v-if="pagintationEnabled" class="pagination">
@@ -45,10 +46,6 @@ const props = defineProps({
     type: Number,
     default: 5000,
   },
-  navigation: {
-    type: Boolean,
-    default: true,
-  },
   pagination: {
     type: Boolean,
     default: true,
@@ -65,9 +62,6 @@ const autoPlayEnabled = ref(
 const timeoutDuration = ref(props.timeout === undefined ? 5000 : props.timeout);
 const pagintationEnabled = ref(
   props.pagination === undefined ? true : props.pagination
-);
-const navEnabled = ref(
-  props.navigation === undefined ? true : props.navigation
 );
 
 // next slide
@@ -106,7 +100,7 @@ onMounted(
 );
 </script>
 
-<style>
+<style scoped>
 .carousel {
   height: 60vh;
   position: relative;
@@ -126,37 +120,7 @@ onMounted(
   height: 100%;
   min-width: 100%;
   object-fit: cover;
-}
-
-.navigate {
-  align-items: center;
-  display: flex;
-  height: 100%;
-  justify-content: center;
-  position: absolute;
   width: 100%;
-}
-
-.navigate .toggle-page {
-  display: flex;
-  flex: 1;
-  padding: 0 var(--small);
-}
-
-.navigate .right {
-  justify-content: flex-end;
-}
-
-.navigate .icon {
-  align-items: center;
-  background-color: #6347c7;
-  border-radius: 50%;
-  color: #fff;
-  cursor: pointer;
-  display: flex;
-  height: 40px;
-  justify-content: center;
-  width: 40px;
 }
 
 .pagination {
@@ -170,15 +134,65 @@ onMounted(
 }
 
 .pagination .page {
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--green);
   border-radius: 50%;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
   cursor: pointer;
   height: 20px;
   width: 20px;
 }
 
 .pagination .active {
-  background-color: #6347c7;
+  background-color: var(--green);
+  filter: blur(0);
+  -webkit-filter: blur(0);
+}
+
+.product-info {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: var(--small);
+  box-shadow: 0 1px 1px var(--gray);
+  height: max-content;
+  inset-block: 0;
+  margin-block: auto;
+  margin-left: var(--smallM);
+  padding: var(--small) var(--largeS);
+  position: absolute;
+  text-align: center;
+}
+
+.product-status {
+  background-color: var(--green);
+  border-radius: var(--small);
+  color: var(--grayLight);
+  font-size: var(--smallM);
+  font-weight: 600;
+  padding: var(--small) var(--smallM);
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-block: var(--smallM);
+}
+
+.product-status,
+.product .title,
+.product .brand {
+  font-size: var(--smallM);
+  margin: 0;
+}
+
+.product .brand {
+  color: var(--greenLogo);
+  font-weight: 800;
+}
+
+.button {
+  padding: 0.5rem var(--largeS);
 }
 </style>
