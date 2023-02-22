@@ -21,3 +21,8 @@
   --large:  64px;
   --largeM: 128px;
 }
+
+/* DEFAULTS */
+:root {
+  --borderRadius: var(--small);
+}

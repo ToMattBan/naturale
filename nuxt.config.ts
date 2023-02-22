@@ -3,7 +3,6 @@ export default defineNuxtConfig({
   css: [
     '@/assets/css/variables.css',
     '@/assets/css/global.css',
-    '@fontsource/inter',
   ],
   app: {
     head: {
