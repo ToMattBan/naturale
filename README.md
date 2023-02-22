@@ -23,15 +23,15 @@ Layout done by KevinL on figma, I just duplciated and put everything in one file
   - [x] CSS variables
   - [x] Typography
 - Components
-  - [ ] Header
-  - [ ] Navbar
+  - [x] Header
+  - [x] Navbar
   - [ ] Footer
   - [ ] Button
   - [ ] Breadcrumb
   - [ ] Product Card
 - Pages
   - HomePage
-    - [ ] Hero (Slider)
+    - [x] Hero (Slider)
     - [ ] Main Categories
     - [ ] Product List
     - [ ] Load More button (Just visual or mocked)
