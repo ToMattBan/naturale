@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <section class="content">
       <div class="product-details">
         <div class="product-details-photos">
@@ -55,21 +55,14 @@
 </template>
 
 <script setup lang="ts">
-interface IProductDetails {
-  name: string;
-  brand: string;
-  originalPrice: number;
-  actualPrice: number;
-  availableQtd: number;
-  description: string;
-  images: string[];
-}
+import IProductDetails from '~~/interfaces/Product';
 
-const {
-  data: productDetails,
-  pending,
-  error,
-} = await useFetch<IProductDetails>('/api/productDetails');
+const productDetails = useProductDetails().productDetails;
+
+const { data, pending, error } = await useFetch<IProductDetails>(
+  '/api/productDetails'
+);
+useProductDetails().setproductDetails(data.value)
 
 const quantitySelected = ref(1);
 const ehNaturale = productDetails.value?.brand == 'Naturale';
