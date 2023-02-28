@@ -29,7 +29,7 @@
 .form-newsletter button.button {
   font-weight: 900;
   font-weight: 700;
-  margin-top: 16px;
+  margin-top: var(--small);
   padding: 4px;
   width: 100%;
 }

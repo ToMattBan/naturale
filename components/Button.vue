@@ -22,7 +22,7 @@ defineProps({
 
 <style scoped>
 button.button {
-  border-radius: 16px;
+  border-radius: var(--borderRadius);
   border: 0;
   text-align: center;
   font-size: 1.1rem;

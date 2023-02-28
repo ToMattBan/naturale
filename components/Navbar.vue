@@ -2,37 +2,53 @@
   <nav class="container">
     <ul class="menu">
       <li v-for="(menuItem, index) in menuList">
-        <button :class="`menu-btn ${index == 0 ? 'active' : ''}`">
-          {{  menuItem.name }}
-        </button>
+        <NuxtLink :to="menuItem.path">
+          <button
+            :class="`menu-btn ${menuActive(menuItem.path) ? 'active' : ''}`"
+          >
+            {{ menuItem.name }}
+          </button>
+        </NuxtLink>
       </li>
     </ul>
   </nav>
 </template>
 
 <script setup lang="ts">
+const route = useRoute();
+
 const menuList = ref([
   {
     id: 0,
-    name: "Todas as categorias"
+    name: 'Todas as categorias',
+    path: '/',
   },
   {
     id: 1,
-    name: 'Tratamento facial'
+    name: 'Tratamento facial',
+    path: '/tratamento-facial',
   },
   {
     id: 2,
-    name: 'Tratamento capilar'
+    name: 'Tratamento capilar',
+    path: '/tratamento-capilar',
   },
   {
     id: 3,
-    name: 'Alimentação'
+    name: 'Alimentação',
+    path: '/alimentacao',
   },
   {
     id: 4,
-    name: 'Suplementos naturais'
+    name: 'Suplementos naturais',
+    path: '/suplementos-naturais',
   },
-])
+]);
+
+function menuActive(path: string) {
+  if (path == '/') return route.path == '/';
+  else return route.path.includes(path);
+}
 </script>
 
 <style scoped>
@@ -61,12 +77,12 @@ const menuList = ref([
 
 .menu-btn:hover {
   background-color: var(--green);
-  color: #FFF;
+  color: #fff;
   cursor: pointer;
 }
 
 .menu-btn.active {
   background-color: var(--green);
-  color: #FFF;
+  color: #fff;
 }
 </style>
