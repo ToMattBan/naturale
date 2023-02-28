@@ -158,7 +158,7 @@ onMounted(
   height: max-content;
   inset-block: 0;
   margin-block: auto;
-  margin-left: var(--smallM);
+  margin-left: var(--largeS);
   padding: var(--small) var(--largeS);
   position: absolute;
   text-align: center;
