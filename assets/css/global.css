@@ -13,3 +13,13 @@ html, body {
   margin: auto;
   max-width: 1440px;
 }
+
+.section-default {
+  padding: var(--smallM);
+}
+
+.section-title {
+  font-weight: 500;
+  margin-bottom: var(--normal);
+  text-align: center;
+}

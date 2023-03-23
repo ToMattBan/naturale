@@ -7,6 +7,11 @@
       class="carousel"
       :carouselSlides="carouselSlides"
     />
+
+    <section class="section-default">
+      <h1 class="section-title">Categorias em destaque</h1>
+      <CategoriesList />
+    </section>
   </main>
 </template>
 <script setup lang="ts">
