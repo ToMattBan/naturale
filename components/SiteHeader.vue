@@ -71,7 +71,8 @@
 
 .register-icon {
   height: var(--smallM);
-  widows: var(--smallM);
+  width: var(--smallM);
+  filter: invert(1);
 }
 
 .cart {

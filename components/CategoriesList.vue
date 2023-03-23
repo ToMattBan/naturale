@@ -42,16 +42,17 @@ const categories = reactive([
 .category-area {
   align-items: center;
   display: flex;
-  gap: var(--small);
+  gap: var(--normal);
   justify-content: space-between;
 }
 
 .category-link {
+  aspect-ratio: 1/1;
   background-size: cover;
   border-radius: var(--small);
-  height: 180px;
   position: relative;
-  width: 180px;
+  max-width: 500px;
+  width: 20%;
 }
 
 .category-name {

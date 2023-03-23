@@ -2,8 +2,8 @@
   <main class="container">
     <Carousel
       :pagination="true"
-      :startAutoPlay="false"
-      :timeout="5000"
+      :startAutoPlay="true"
+      :timeout="2000"
       class="carousel"
       :carouselSlides="carouselSlides"
     />
