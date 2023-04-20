@@ -70,7 +70,7 @@ const productDetails = useProductDetails().productDetails;
 const { data, pending, error } = await useFetch<IProductDetails>(
   '/api/productDetails'
 );
-useProductDetails().setproductDetails(data.value);
+if (data.value) useProductDetails().setproductDetails(data.value);
 
 const quantitySelected = ref(1);
 const ehNaturale = productDetails.value?.brand == 'Naturale';

@@ -15,6 +15,20 @@
       <Button class="button default" to="/"> Confira já </Button>
     </article>
 
+    <!-- Navigation -->
+    <div v-if="navEnabled" class="navigate">
+      <div class="toggle-page left">
+        <div @click="prevSlide(true)" class="arrow">
+          <i class="arrow-left"></i>
+        </div>
+      </div>
+      <div class="toggle-page right">
+        <div @click="nextSlide(true)" class="arrow">
+          <i class="arrow-right"></i>
+        </div>
+      </div>
+    </div>
+
     <!-- Pagination -->
     <div v-if="pagintationEnabled" class="pagination">
       <span
@@ -52,6 +66,10 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  navigation: {
+    type: Boolean,
+    default: true,
+  },
   haveProductInfo: {
     type: Boolean,
     default: false,
@@ -73,9 +91,14 @@ const timeoutDuration = ref(props.timeout === undefined ? 5000 : props.timeout);
 const pagintationEnabled = ref(
   props.pagination === undefined ? true : props.pagination
 );
+const navEnabled = ref(
+  props.navigation === undefined ? true : props.navigation
+);
 
 // next slide
-const nextSlide = () => {
+const nextSlide = (userInteraction: boolean) => {
+  if (userInteraction) stopAutoPlay();
+
   if (currentSlide.value === getSlideCount.value) {
     currentSlide.value = 1;
     return;
@@ -84,7 +107,9 @@ const nextSlide = () => {
 };
 
 // prev slide
-const prevSlide = () => {
+const prevSlide = (userInteraction: boolean) => {
+  if (userInteraction) stopAutoPlay();
+
   if (currentSlide.value === 1) {
     currentSlide.value = 1;
     return;
@@ -100,7 +125,7 @@ const goToSlide = (index: number) => {
 // autoplay
 const startAutoPlay = () => {
   return setInterval(() => {
-    nextSlide();
+    nextSlide(false);
   }, timeoutDuration.value);
 };
 
@@ -138,6 +163,51 @@ onMounted(
   min-width: 100%;
   object-fit: cover;
   width: 100%;
+}
+
+.navigate {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+}
+
+.navigate .toggle-page {
+  display: flex;
+  flex: 1;
+  padding: 0 var(--small);
+}
+
+.navigate .right {
+  justify-content: flex-end;
+}
+
+.navigate .arrow {
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--green);
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+}
+
+.navigate .arrow .arrow-left,
+.navigate .arrow .arrow-right {
+  border: solid var(--green);
+  border-width: 0 4px 4px 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotate(135deg) translate(-1px, -1px);
+}
+
+.navigate .arrow .arrow-right {
+  transform: rotate(-45deg) translate(-1px, -1px);;
 }
 
 .pagination {
