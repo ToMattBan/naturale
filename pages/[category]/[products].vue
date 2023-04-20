@@ -2,9 +2,15 @@
   <div class="container">
     <section class="content">
       <div class="product-details">
-        <div class="product-details-photos">
+        <Carousel
+          :pagination="true"
+          :startAutoPlay="false"
+          class="product-details-photos"
+          :carouselSlides="productDetails?.images"
+        />
+        <!-- <div class="product-details-photos">
           <img :src="productDetails?.images[0]" />
-        </div>
+        </div> -->
 
         <div class="product-details-cta">
           <h1>
@@ -62,7 +68,7 @@ const productDetails = useProductDetails().productDetails;
 const { data, pending, error } = await useFetch<IProductDetails>(
   '/api/productDetails'
 );
-useProductDetails().setproductDetails(data.value)
+useProductDetails().setproductDetails(data.value);
 
 const quantitySelected = ref(1);
 const ehNaturale = productDetails.value?.brand == 'Naturale';

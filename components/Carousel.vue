@@ -2,11 +2,11 @@
   <div class="carousel">
     <Slide v-for="(slide, index) in carouselSlides" :key="index">
       <div v-show="currentSlide === index + 1" class="slide-info">
-        <img :src="`/carousel/${slide}.jpg`" alt="" />
+        <img :src="slide" alt="" />
       </div>
     </Slide>
 
-    <article class="product-info">
+    <article class="product-info" v-if="haveProductInfo">
       <h1 class="product-status">Novidade!</h1>
       <div class="product">
         <h2 class="title">Creme Facil</h2>
@@ -50,6 +50,13 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  haveProductInfo: {
+    type: Boolean,
+    default: false,
+  }
+  /* productInfo: {
+    type: Object
+  } */
 });
 
 const currentSlide = ref(1);

@@ -4,6 +4,7 @@
       :pagination="true"
       :startAutoPlay="true"
       :timeout="2000"
+      :haveProductInfo="true"
       class="carousel"
       :carouselSlides="carouselSlides"
     />
@@ -15,5 +16,9 @@
   </main>
 </template>
 <script setup lang="ts">
-const carouselSlides = ['bg-1', 'bg-2', 'bg-3'];
+const carouselSlides = [
+  '/carousel/bg-1.jpg',
+  '/carousel/bg-2.jpg',
+  '/carousel/bg-3.jpg',
+];
 </script>
