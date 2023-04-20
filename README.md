@@ -7,15 +7,11 @@ Project to learn Nuxt 3, using what it give to us and just that. The use case wi
 - Nuxt 3
 - MongoDB
 
-## Deadline
-- Front-end (Nuxt 3) 19/02/2023
-- Back-end (MondoDB) 26/02/2023
-
 ## Layout
 Layout done by KevinL on figma, I just duplciated and put everything in one file [here](https://www.figma.com/file/8GjHl7CdC2GugIMLZTBQBH/Naturale_Copy)
 
 ## Roadmap
-### Due 19/02/2023
+### First Steps
 - Settings
   - [x] Starting the project
   - [x] CSS variables
@@ -41,7 +37,7 @@ Layout done by KevinL on figma, I just duplciated and put everything in one file
     - [ ] Another Products
     - [x] Load More button (Just visual or mocked)
 
-### Due 26/02/2023
+### MORE!
 - Settings
   - [ ] Crete database on Mongo
     - [ ] Create products table
