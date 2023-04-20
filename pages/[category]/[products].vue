@@ -10,9 +10,6 @@
           class="product-details-photos"
           :carouselSlides="productDetails?.images"
         />
-        <!-- <div class="product-details-photos">
-          <img :src="productDetails?.images[0]" />
-        </div> -->
 
         <div class="product-details-cta">
           <h1>

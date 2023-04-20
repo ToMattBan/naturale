@@ -1,15 +1,17 @@
 <template>
   <main class="container">
-    <Carousel
-      :pagination="true"
-      :startAutoPlay="true"
-      :timeout="2000"
-      :haveProductInfo="true"
-      :stopAutoplayUserInteraction="false"
-      :navigation="false"
-      class="carousel"
-      :carouselSlides="carouselSlides"
-    />
+    <div class="carousel">
+      <Carousel
+        :pagination="true"
+        :startAutoPlay="true"
+        :timeout="2000"
+        :haveProductInfo="true"
+        :stopAutoplayUserInteraction="false"
+        :navigation="false"
+        class="carousel"
+        :carouselSlides="carouselSlides"
+      />
+    </div>
 
     <section class="section-default">
       <h1 class="section-title">Categorias em destaque</h1>
@@ -24,3 +26,9 @@ const carouselSlides = [
   '/carousel/bg-3.jpg',
 ];
 </script>
+
+<style scoped>
+.carousel {
+  height: 60vh;
+}
+</style>

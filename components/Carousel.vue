@@ -144,7 +144,6 @@ onMounted(
 
 <style scoped>
 .carousel {
-  height: 60vh;
   position: relative;
   width: 100%;
 }
