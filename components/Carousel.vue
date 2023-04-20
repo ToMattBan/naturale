@@ -12,9 +12,7 @@
         <h2 class="title">Creme Facil</h2>
         <p class="brand">Naturale</p>
       </div>
-      <Button class="button default" to="/">
-        Confira já
-      </Button>
+      <Button class="button default" to="/"> Confira já </Button>
     </article>
 
     <!-- Pagination -->
@@ -46,6 +44,10 @@ const props = defineProps({
     type: Number,
     default: 5000,
   },
+  stopAutoplayUserInteraction: {
+    type: Boolean,
+    default: true,
+  },
   pagination: {
     type: Boolean,
     default: true,
@@ -53,7 +55,7 @@ const props = defineProps({
   haveProductInfo: {
     type: Boolean,
     default: false,
-  }
+  },
   /* productInfo: {
     type: Object
   } */
@@ -61,6 +63,7 @@ const props = defineProps({
 
 const currentSlide = ref(1);
 const getSlideCount = ref<null | number>(null);
+const autoPlay = ref();
 
 // anti undefined check
 const autoPlayEnabled = ref(
@@ -90,17 +93,24 @@ const prevSlide = () => {
 };
 
 const goToSlide = (index: number) => {
+  stopAutoPlay();
   currentSlide.value = index + 1;
 };
 
 // autoplay
-const autoPlay = () => {
-  setInterval(() => {
+const startAutoPlay = () => {
+  return setInterval(() => {
     nextSlide();
   }, timeoutDuration.value);
 };
 
-if (autoPlayEnabled.value) autoPlay();
+const stopAutoPlay = () => {
+  clearInterval(autoPlay.value);
+};
+
+if (autoPlayEnabled.value) {
+  autoPlay.value = startAutoPlay();
+}
 
 onMounted(
   () => (getSlideCount.value = document.querySelectorAll('.slide').length)

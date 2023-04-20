@@ -4,7 +4,9 @@
       <div class="product-details">
         <Carousel
           :pagination="true"
-          :startAutoPlay="false"
+          :startAutoPlay="true"
+          :timeout="10000"
+          :stopAutoplayUserInteraction="true"
           class="product-details-photos"
           :carouselSlides="productDetails?.images"
         />

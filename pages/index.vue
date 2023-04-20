@@ -5,6 +5,7 @@
       :startAutoPlay="true"
       :timeout="2000"
       :haveProductInfo="true"
+      :stopAutoplayUserInteraction="false"
       class="carousel"
       :carouselSlides="carouselSlides"
     />
