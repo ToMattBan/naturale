@@ -119,6 +119,6 @@ footer p {
 
 .copyright p {
   max-width: 1440px;
-  margin: auto;
+  margin: auto auto auto var(--small);
 }
 </style>

@@ -68,6 +68,7 @@ watch(originalRoute, (newRoute) => {
   display: flex;
   font-weight: 500;
   text-transform: capitalize;
+  margin-left: var(--small);
 }
 
 .breadcrumb .routes,
