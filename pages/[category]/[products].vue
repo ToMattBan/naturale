@@ -13,8 +13,8 @@
 
         <div class="product-details-cta">
           <h1>
-            <span>{{ productDetails?.name }}</span>
-            <span :class="{ 'product-brand-natuale': ehNaturale }"
+            <span>{{ productDetails?.name }} - </span>
+            <span class="product-brand-natuale"
               >&nbsp;{{ productDetails?.brand }}</span
             >
           </h1>
