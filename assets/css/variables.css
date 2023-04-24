@@ -1,14 +1,23 @@
 /* COLORS */
 :root {
+  --greenDarker: #00331a;
+  --greenDark: #006633;
+  --greenMoss: #00994d;
   --green: #00aa44;
+  --greenLight: #33bb77;
+
   --greenLogo: #00aa95;
-
+  --greenWater: #66ccbb;
+  --greenWaterLight: #99d9cc;
+  
+  --pureWhite: #ffffff;
   --background: #f9f9f9;
-
-  --grayDark: #707070;
-  --gray: #d9d9d9;
+  --grayLight: #d9d9d9;
+  
   --grayMedium: #e6e6e6;
-  --grayLight: #f0f0f0;
+  --gray: #b3b3b3;
+  --grayDark: #808080;
+  --pureBlack: #000000;
 }
 
 /* SIZES */

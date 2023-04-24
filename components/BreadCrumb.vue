@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" v-if="!justHome()">
     <div class="breadcrumb">
       <span v-for="(breadRoute, index) in breadRoutes">
         <NuxtLink
@@ -51,7 +51,11 @@ function createBreadcrumb(route: any) {
 
 function formatName(name: string, param: string) {
   if (param != 'products') return name.replace('-', ' ');
-  else return useProductDetails().productDetails.value.name
+  else return useProductDetails().productDetails.value.name;
+}
+
+function justHome() {
+  return breadRoutes.value.length == 1 && breadRoutes.value[0].name == 'Home';
 }
 
 watch(originalRoute, (newRoute) => {
@@ -64,6 +68,7 @@ watch(originalRoute, (newRoute) => {
   display: flex;
   font-weight: 500;
   text-transform: capitalize;
+  margin-left: var(--small);
 }
 
 .breadcrumb .routes,

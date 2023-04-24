@@ -2,14 +2,19 @@
   <div class="container">
     <section class="content">
       <div class="product-details">
-        <div class="product-details-photos">
-          <img :src="productDetails?.images[0]" />
-        </div>
+        <Carousel
+          :pagination="true"
+          :startAutoPlay="true"
+          :timeout="10000"
+          :stopAutoplayUserInteraction="true"
+          class="product-details-photos"
+          :carouselSlides="productDetails?.images"
+        />
 
         <div class="product-details-cta">
           <h1>
-            <span>{{ productDetails?.name }}</span>
-            <span :class="{ 'product-brand-natuale': ehNaturale }"
+            <span>{{ productDetails?.name }} - </span>
+            <span class="product-brand-natuale"
               >&nbsp;{{ productDetails?.brand }}</span
             >
           </h1>
@@ -62,7 +67,7 @@ const productDetails = useProductDetails().productDetails;
 const { data, pending, error } = await useFetch<IProductDetails>(
   '/api/productDetails'
 );
-useProductDetails().setproductDetails(data.value)
+if (data.value) useProductDetails().setproductDetails(data.value);
 
 const quantitySelected = ref(1);
 const ehNaturale = productDetails.value?.brand == 'Naturale';

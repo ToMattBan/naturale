@@ -60,6 +60,7 @@ function menuActive(path: string) {
   list-style-type: none;
   padding: 0;
   width: 100%;
+  margin-top: 0;
 }
 
 .menu li {

@@ -2,20 +2,32 @@
   <div class="carousel">
     <Slide v-for="(slide, index) in carouselSlides" :key="index">
       <div v-show="currentSlide === index + 1" class="slide-info">
-        <img :src="`/carousel/${slide}.jpg`" alt="" />
+        <img :src="slide" alt="" />
       </div>
     </Slide>
 
-    <article class="product-info">
+    <article class="product-info" v-if="haveProductInfo">
       <h1 class="product-status">Novidade!</h1>
       <div class="product">
         <h2 class="title">Creme Facil</h2>
         <p class="brand">Naturale</p>
       </div>
-      <Button class="button default" to="/">
-        Confira já
-      </Button>
+      <Button class="button default" to="/"> Confira já </Button>
     </article>
+
+    <!-- Navigation -->
+    <div v-if="navEnabled" class="navigate">
+      <div class="toggle-page left">
+        <div @click="prevSlide(true)" class="arrow">
+          <i class="arrow-left"></i>
+        </div>
+      </div>
+      <div class="toggle-page right">
+        <div @click="nextSlide(true)" class="arrow">
+          <i class="arrow-right"></i>
+        </div>
+      </div>
+    </div>
 
     <!-- Pagination -->
     <div v-if="pagintationEnabled" class="pagination">
@@ -46,14 +58,30 @@ const props = defineProps({
     type: Number,
     default: 5000,
   },
+  stopAutoplayUserInteraction: {
+    type: Boolean,
+    default: true,
+  },
   pagination: {
     type: Boolean,
     default: true,
   },
+  navigation: {
+    type: Boolean,
+    default: true,
+  },
+  haveProductInfo: {
+    type: Boolean,
+    default: false,
+  },
+  /* productInfo: {
+    type: Object
+  } */
 });
 
 const currentSlide = ref(1);
 const getSlideCount = ref<null | number>(null);
+const autoPlay = ref();
 
 // anti undefined check
 const autoPlayEnabled = ref(
@@ -63,9 +91,14 @@ const timeoutDuration = ref(props.timeout === undefined ? 5000 : props.timeout);
 const pagintationEnabled = ref(
   props.pagination === undefined ? true : props.pagination
 );
+const navEnabled = ref(
+  props.navigation === undefined ? true : props.navigation
+);
 
 // next slide
-const nextSlide = () => {
+const nextSlide = (userInteraction: boolean) => {
+  if (userInteraction) stopAutoPlay();
+
   if (currentSlide.value === getSlideCount.value) {
     currentSlide.value = 1;
     return;
@@ -74,7 +107,9 @@ const nextSlide = () => {
 };
 
 // prev slide
-const prevSlide = () => {
+const prevSlide = (userInteraction: boolean) => {
+  if (userInteraction) stopAutoPlay();
+
   if (currentSlide.value === 1) {
     currentSlide.value = 1;
     return;
@@ -83,17 +118,24 @@ const prevSlide = () => {
 };
 
 const goToSlide = (index: number) => {
+  stopAutoPlay();
   currentSlide.value = index + 1;
 };
 
 // autoplay
-const autoPlay = () => {
-  setInterval(() => {
-    nextSlide();
+const startAutoPlay = () => {
+  return setInterval(() => {
+    nextSlide(false);
   }, timeoutDuration.value);
 };
 
-if (autoPlayEnabled.value) autoPlay();
+const stopAutoPlay = () => {
+  clearInterval(autoPlay.value);
+};
+
+if (autoPlayEnabled.value) {
+  autoPlay.value = startAutoPlay();
+}
 
 onMounted(
   () => (getSlideCount.value = document.querySelectorAll('.slide').length)
@@ -102,7 +144,6 @@ onMounted(
 
 <style scoped>
 .carousel {
-  height: 60vh;
   position: relative;
   width: 100%;
 }
@@ -121,6 +162,51 @@ onMounted(
   min-width: 100%;
   object-fit: cover;
   width: 100%;
+}
+
+.navigate {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+}
+
+.navigate .toggle-page {
+  display: flex;
+  flex: 1;
+  padding: 0 var(--small);
+}
+
+.navigate .right {
+  justify-content: flex-end;
+}
+
+.navigate .arrow {
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--green);
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+}
+
+.navigate .arrow .arrow-left,
+.navigate .arrow .arrow-right {
+  border: solid var(--green);
+  border-width: 0 4px 4px 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotate(135deg) translate(-1px, -1px);
+}
+
+.navigate .arrow .arrow-right {
+  transform: rotate(-45deg) translate(-1px, -1px);;
 }
 
 .pagination {

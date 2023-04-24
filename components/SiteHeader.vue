@@ -9,17 +9,19 @@
           <img class="search-icon" src="~assets/icons/search-icon.svg" alt="My Happy SVG" />
           <input id="search" class="search" type="text" placeholder="Buscar produtos...">
         </label> 
-    
-        <Button>
-          <div class="register">
-            <img class="register-icon" src="~assets/icons/user.svg" alt="My Happy SVG" />
-            <span>Cadastro / Login</span>
-          </div>
-        </Button>
-    
-        <button class="cart">
-          <img class="cart-icon" src="~assets/icons/cart.svg" alt="My Happy SVG" />
-        </button>
+        
+        <div class="action-buttons">
+          <Button>
+            <div class="register">
+              <img class="register-icon" src="~assets/icons/user.svg" alt="My Happy SVG" />
+              <span>Cadastro / Login</span>
+            </div>
+          </Button>
+      
+          <button class="cart">
+            <img class="cart-icon" src="~assets/icons/cart.svg" alt="My Happy SVG" />
+          </button>
+        </div>
     </header>
   </div>
 </template>
@@ -62,6 +64,11 @@
   border-color: var(--grayDark);
 }
 
+.action-buttons {
+  display: flex;
+  align-items: center;
+}
+
 .register {
   align-items: center;
   display: flex;
@@ -71,13 +78,17 @@
 
 .register-icon {
   height: var(--smallM);
-  widows: var(--smallM);
+  width: var(--smallM);
+  filter: invert(1);
 }
 
 .cart {
   background-color: transparent;
   border: 0;
   outline: none;
+  padding: 0 var(--smallM);
+  display: flex;
+  cursor: pointer;
 }
 
 .cart-icon {
