@@ -14,8 +14,14 @@
     </div>
 
     <section class="section-default">
-      <h1 class="section-title">Categorias em destaque</h1>
-      <CategoriesList />
+      <article>
+        <h1 class="section-title">Categorias em destaque</h1>
+        <CategoriesList />
+      </article>
+      <article>
+        <h1 class="section-title">Produtos</h1>
+        <ProductsList />
+      </article>
     </section>
   </main>
 </template>
